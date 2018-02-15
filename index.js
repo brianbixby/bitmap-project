@@ -9,7 +9,7 @@ const writeFileHelper = require('./lib/file-writer.js');
 const callback = require('./lib/callback.js');
 
 ee.on('readFileHelperDone', function(data) {
-  if(data) console.log('our data: ', data.toString());
+  if(data) console.log('our data: ', data);
   // if(files.length === 0) return;
   // // removes last from array
   // fs.readFile(files.pop(), function(err, data) {
@@ -18,18 +18,11 @@ ee.on('readFileHelperDone', function(data) {
   // });
 });
 
-// `${__dirname}/../assets/palette-bitmap.bmp`
-
-// console.log('works');
-console.log(process.argv[2]);
-
-readFileHelper(`${__dirname}/assets/${process.argv[3]}`);
-
-
-
-// const bitmap = fs.readFileSync(`${__dirname}/assets/palette-bitmap.bmp`);
+readFileHelper(process.argv[2], callback);
 
 // node index.js original-file.bmp transformed-file.bmp transformation
-// process.argv[3] = original-file.bmp
-// process.argv[4] = transformed-file.bmp
-// process.argv[5] = transformation
+// process.argv[2] = original-file.bmp
+// process.argv[3] = transformed-file.bmp
+// process.argv[4] = transformation
+
+// node index.js palette-bitmap.bmp

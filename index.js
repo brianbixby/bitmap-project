@@ -8,16 +8,16 @@ let transformedFilePath = process.argv[3];
 let transformationArray = [];
 
 const wfCallback = function(err, data) {
-  if(err) throw err;
+  if(err) return err;
 };
 
 const tfCallback = function(err, data) {
-  if(err) throw err;
+  if(err) return err;
   writeFileHelper(data, transformedFilePath, wfCallback);
 };
 
 const rfCallback = function(err, data) {
-  if(err) throw err;
+  if(err) return err;
   transformFileHelper(data, transformationArray, tfCallback);
 };
 

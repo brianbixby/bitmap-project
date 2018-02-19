@@ -7,8 +7,9 @@ const writeFileHelper = require('./lib/file-writer.js');
 let transformedFilePath = process.argv[3];
 let transformationArray = [];
 
-const wfCallback = function(err, data) {
+const wfCallback = function(err) {
   if(err) return err;
+  console.log(`*** successfully created ${transformedFilePath} ***`);
 };
 
 const tfCallback = function(err, data) {

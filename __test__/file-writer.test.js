@@ -3,19 +3,22 @@
 const fileWriter = require('../lib/file-writer.js');
 require('jest');
 
-describe('File WriterModule', function() {
-  describe('with improper file output', function() {
-    it('should return an error', function(done) {
-      fileWriter('palette-bitmap.png', function(err, data) {
-        expect(err).toBeTruthy();
-        expect(err.code).toEqual('ENOENT');
-        // expect(err).toEqual('palette-bitmap.png is not a bmp file. Please visit https://online-converting.com/image/convert2bmp/ to convert this image to a 8-bit bmp file.');
-        done();
-      });
-      fileWriter('notfound.bmp', function(err, data) {
-        expect(err).toBeTruthy();
-        expect(err.code).toEqual('ENOENT');
-        // expect(err).toEqual('Could not find notfound.bmp in assets folder. Please make sure it is there, check for typos and try again.');
+describe('File Writer Module', function() {
+  describe('with improper file paths', function() {
+    it('should throw argument data type error', function(done) {
+      expect(function() {
+        fileWriter(Buffer.from('00 00 00', 'hex'), 'abc', function() {});
+      }).toThrow('abc is not a bmp file. Please execute your command again with abc.bmp as your new file name.');
+      expect(function() {
+        fileWriter(Buffer.from('00 00 00', 'hex'), 'abc.bmp', []);
+      }).toThrow('argument data type error');
+      done();
+    });
+  });
+  describe('with proper file paths', function() {
+    it('should return file data', function(done) {
+      fileWriter(Buffer.from('00 00 00', 'hex'), 'abc.bmp', function(err) {
+        expect(err).toBe(null);
         done();
       });
     });

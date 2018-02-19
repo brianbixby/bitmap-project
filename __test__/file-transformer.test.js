@@ -16,7 +16,7 @@ const tfCallback = function(err, data) {
 
 let bmArrayData = fileReader('palette-bitmap.bmp', rfCallback);
 
-fileTransformer(bmArrayData, ['greyscale'], tfCallback);
+// fileTransformer(bmArrayData, ['greyscale'], tfCallback);
 
 
 
@@ -41,32 +41,32 @@ describe('File Transformer Module', function() {
 
 
 
-describe('with proper data', function() {
-  const rfCallback = function(err, data) {
-    if(err) return err;
-    return data;
-  };
+// describe('with proper data', function() {
+//   const rfCallback = function(err, data) {
+//     if(err) return err;
+//     return data;
+//   };
   
-  const tfCallback = function(err, data) {
-    if(err) return err;
-    return data;
-  };
+//   const tfCallback = function(err, data) {
+//     if(err) return err;
+//     return data;
+//   };
   
-  let bmArrayData = fileReader('palette-bitmap.bmp', rfCallback);
-    done();
-  });
+//   let bmArrayData = fileReader('palette-bitmap.bmp', rfCallback);
+//     done();
+//   });
 
-  it('should have the correct order of hex strings', done => {
-    var expectedResult = [ '3120657367206577' ];
+//   it('should have the correct order of hex strings', done => {
+//     var expectedResult = [ '3120657367206577' ];
 
-    readFileHelper(this.paths, function(err, data) {
-      console.log('data array: ', data);
-      expect(err).toEqual(null);
-      expect(data[0]).toEqual(expectedResult[0]);
-      done();
-    });
-  });
-});
+//     readFileHelper(this.paths, function(err, data) {
+//       console.log('data array: ', data);
+//       expect(err).toEqual(null);
+//       expect(data[0]).toEqual(expectedResult[0]);
+//       done();
+//     });
+//   });
+// });
 
 
 

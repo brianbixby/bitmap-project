@@ -32,10 +32,9 @@ Installation:
 
 Tests:
   To use the Command Line Interface, the user must first type node index.js and enter three arguments:
-
-    The original bitmap file path, using the following structure. Ex: ./data/palette-bitmap.bmp
-    The output file name (not the entire path). Ex: new
-    The transform method name. See below for all transform meethods. Ex: invert
+    1) The original bitmap file path, using the following structure. (ie: palette-bitmap.bmp)
+    2) The output file name. (ie: transformed-palette-bitmap.bmp)
+    3) The transform method name. See below for all transform methods. (ie: invert)
 Example: node index.js palette-bitmap.bmp transformed-palette-bitmap.bmp invert
 
 Transform methods:
@@ -57,4 +56,5 @@ Contributors:
   Tama
 
 License:
+  MIT
   

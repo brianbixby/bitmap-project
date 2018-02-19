@@ -25,25 +25,32 @@ describe('File transformer Module', () => {
 
   describe('fileTransformer invert', () => {
     it('the invert methods pixel array values should be reversed', done => {
-      fileTransformer(testAssets.buffer, ['greyscale'], function(err, data) {
-        console.log(this);
-        expect(() => {this.pixelArray.toString('hex');}).toEqual(testAssets.expectedInvertedPixelArray);
+      fileTransformer(testAssets.buffer, ['invert'], function(err, data) {
+        expect(data.slice(1078, 11078).toString('hex')).toEqual(testAssets.invertedPixelArray.toString('hex'));
         done();
       });
     });
   });
+
+  describe('fileTransformer greyscale', () => {
+    it('the greyscale methods color table buffer values should be an average for each rgb set', done => {
+      fileTransformer(testAssets.buffer, ['greyscale'], function(err, data) {
+        expect(data.slice(54, 1078).toString('hex')).toEqual(testAssets.greyscaleColorTableBuffer.toString('hex'));
+        done();
+      });
+    });
+  });
+
+  describe('fileTransformer verticalmirror', () => {
+    it('the verticalmirror methods pixel array values should be reversed', done => {
+      fileTransformer(testAssets.buffer, ['verticalmirror'], function(err, data) {
+        expect(data.slice(1078, 11078).toString('hex')).toEqual(testAssets.verticalmirrorPixelArray.toString('hex'));
+        done();
+      });
+    });
+  });
+
+
+
+
 });
-
-// console.log this, compare buffers console.log buffers
-// check the same variable i pass to file transformer
-// testAssets.expectedInvertedPixelArray
-// // data, transformation, tfCallback
-
-// toEqual(Buffer.from([
-//   85, 85, 85, 0,
-//   85, 85, 85, 0,
-//   85, 85, 85, 0,
-// ]));
-// });
-
-// Buffer.from(testAssets.data, 'hex');

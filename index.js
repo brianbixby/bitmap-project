@@ -28,4 +28,5 @@ const rfCallback = function(err, data) {
   readFileHelper(process.argv[2], rfCallback);
 })();
 
+
 // node index.js palette-bitmap.bmp transformed-palette-bitmap.bmp invert

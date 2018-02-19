@@ -31,4 +31,26 @@ describe('File transformer Module', () => {
       });
     });
   });
+
+  describe('fileTransformer greyscale', () => {
+    it('the greyscale methods color table buffer values should be an average for each rgb set', done => {
+      fileTransformer(testAssets.buffer, ['greyscale'], function(err, data) {
+        expect(data.slice(54, 1078).toString('hex')).toEqual(testAssets.greyscaleColorTableBuffer.toString('hex'));
+        done();
+      });
+    });
+  });
+
+  describe('fileTransformer verticalmirror', () => {
+    it('the verticalmirror methods pixel array values should be reversed', done => {
+      fileTransformer(testAssets.buffer, ['verticalmirror'], function(err, data) {
+        expect(data.slice(1078, 11078).toString('hex')).toEqual(testAssets.verticalmirrorPixelArray.toString('hex'));
+        done();
+      });
+    });
+  });
+
+
+
+
 });

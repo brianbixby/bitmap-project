@@ -23,7 +23,7 @@ const rfCallback = function(err, data) {
 };
 
 (function () {
-  for(let i=4; i< process.argv.length; i++) {
+  for(let i=4; i<process.argv.length; i++) {
     transformationArray.push(process.argv[i]);
   }
   readFileHelper(process.argv[2], rfCallback);

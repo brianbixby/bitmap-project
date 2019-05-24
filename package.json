@@ -8,13 +8,13 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint"
+    "lint": "eslint **/*.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "eslint": "^4.17.0",
-    "jest": "^22.3.0"
+    "jest": "^24.8.0"
   }
 }

@@ -1,9 +1,4 @@
 # Bitmap CLI Application
-
-Code Fellows 401 Advanced Software Development
-
-Bitmap Transformer Assignment, February 2018
-
 This application can help perform a few basic image processing transformations on bitmap files (.bmp) with color depths of 8 or 24 bits and have a header field of 'BM'. Accepted bitmaps may have any width or height although smaller sized bitmaps are recommended for faster processing, there is a 100px by 100px sample image provided in the project.
 
 ###Installation & Getting Started:
@@ -34,7 +29,7 @@ Note: The [originalBitmapFile] must be located in the assets folder, this is whe
 Note: There are 11 separate transformations, feel free to playaround with all of them and to chain multiple transformations on top each other. ex. node index.js palette-bitmap.bmp ihm-palette-bitmap.bmp invertedhorizontalmirror greyscale
 
 ###Technical Overview:
-Our project is made up of 3 separate modules that live inside the lib folder(read,transform and write), the contents of which of which are exported. This project was an exercise in asynchronous callbacks, TDD (Test Driven Development), project organization and modularity among other things.
+My project is made up of 3 separate modules that live inside the lib folder(read,transform and write), the contents of which of which are exported. This project was an exercise in asynchronous callbacks, TDD (Test Driven Development), project organization and modularity among other things.
 
 The file-reader.js module has an airity of 2 with expected inputs of a file path and a callback. The output is a buffer object, if there is a valid input of a (file path and function). If the parameter type/types are wrong or there is not 2 parameters an error will be thrown.
 
